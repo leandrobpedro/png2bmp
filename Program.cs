@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace firemage
+namespace png2bmp
 {
     public class Program
     {
