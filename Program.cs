@@ -104,7 +104,14 @@ namespace png2bmp
                                     , string fromColor
                                     , string toColor)
         {
-            Bitmap bmp = new Bitmap(img);
+            Bitmap blank = new Bitmap(img.Width, img.Height);
+            Graphics g = Graphics.FromImage(blank);
+            g.Clear(Color.White);
+            g.DrawImage(img, 0, 0, img.Width, img.Height);
+
+            Bitmap bmp = new Bitmap(blank);
+            blank.Dispose();
+            img.Dispose();
 
             if (!string.IsNullOrEmpty(fromColor) && !string.IsNullOrEmpty(toColor))
             {
